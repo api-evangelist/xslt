@@ -1,13 +1,21 @@
+aid: xslt
 name: XSLT
 description: XSLT (Extensible Stylesheet Language Transformations) is a language for
   transforming XML documents into other formats such as HTML, plain text, or different
   XML structures. It uses template-based rules and XPath expressions to select and
   restructure XML data, commonly used in data integration and document publishing
   pipelines.
-url: null
+type: Index
+url: https://www.w3.org/TR/xslt/
 tags:
-- XSLT
+  - XSLT
+  - XML
+  - Data Transformation
 created: '2025'
-modified: '2025'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis: []
 common: []
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
