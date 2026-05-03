@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/xslt/blob/main/json-schema/xslt-stylesheet-schema.json",
+  "title": "XSLT Stylesheet",
+  "description": "JSON Schema representing the structure and metadata of an XSLT stylesheet document for use in data transformation pipelines.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "XSLT version used by the stylesheet.",
+      "enum": ["1.0", "2.0", "3.0"],
+      "examples": ["3.0"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the XSLT stylesheet.",
+      "examples": ["HTML Report Transformer", "EDI to JSON Converter"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of what the stylesheet transforms."
+    },
+    "inputFormat": {
+      "type": "string",
+      "description": "Expected input XML format or schema.",
+      "examples": ["XML", "XHTML", "SVG", "DITA", "DocBook"]
+    },
+    "outputFormat": {
+      "type": "string",
+      "description": "Output format produced by the transformation.",
+      "enum": ["html", "xhtml", "xml", "text", "json"],
+      "examples": ["html"]
+    },
+    "outputMethod": {
+      "type": "string",
+      "description": "XSLT output method directive.",
+      "enum": ["xml", "html", "text", "xhtml"],
+      "examples": ["html"]
+    },
+    "encoding": {
+      "type": "string",
+      "description": "Character encoding for the output.",
+      "default": "UTF-8",
+      "examples": ["UTF-8", "ISO-8859-1"]
+    },
+    "namespaces": {
+      "type": "array",
+      "description": "Namespace declarations used in the stylesheet.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "prefix": {
+            "type": "string",
+            "description": "Namespace prefix.",
+            "examples": ["xsl", "xs", "fn"]
+          },
+          "uri": {
+            "type": "string",
+            "format": "uri",
+            "description": "Namespace URI.",
+            "examples": ["http://www.w3.org/1999/XSL/Transform"]
+          }
+        },
+        "required": ["prefix", "uri"]
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "description": "External parameters accepted by the stylesheet.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Parameter name."
+          },
+          "type": {
+            "type": "string",
+            "description": "XPath/XSD type of the parameter.",
+            "examples": ["xs:string", "xs:integer", "xs:boolean"]
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether the parameter is required.",
+            "default": false
+          },
+          "default": {
+            "type": "string",
+            "description": "Default value for the parameter."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the parameter's purpose."
+          }
+        },
+        "required": ["name"]
+      }
+    },
+    "templates": {
+      "type": "array",
+      "description": "Named templates or template match rules in the stylesheet.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Template name (for named templates)."
+          },
+          "match": {
+            "type": "string",
+            "description": "XPath match expression.",
+            "examples": ["/", "//book", "chapter"]
+          },
+          "mode": {
+            "type": "string",
+            "description": "XSLT processing mode."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of what the template handles."
+          }
+        }
+      }
+    },
+    "imports": {
+      "type": "array",
+      "description": "Other XSLT stylesheets imported by this one.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "URI or relative path of the imported stylesheet."
+          },
+          "type": {
+            "type": "string",
+            "enum": ["import", "include"],
+            "description": "Whether the stylesheet is imported (lower precedence) or included (same precedence)."
+          }
+        },
+        "required": ["href", "type"]
+      }
+    },
+    "streaming": {
+      "type": "boolean",
+      "description": "Whether the stylesheet uses XSLT 3.0 streaming mode for large documents.",
+      "default": false
+    },
+    "created": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the stylesheet was created.",
+      "examples": ["2026-05-03"]
+    },
+    "modified": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the stylesheet was last modified.",
+      "examples": ["2026-05-03"]
+    }
+  },
+  "required": ["version", "name", "outputFormat"]
+}

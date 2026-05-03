@@ -1,0 +1,26 @@
+{
+  "description": "Example of an XSLT transformation request converting XML invoice data to HTML.",
+  "id": "txn-20260503-001",
+  "stylesheet": {
+    "uri": "https://example.com/stylesheets/invoice-to-html.xsl",
+    "version": "3.0"
+  },
+  "source": {
+    "uri": "https://example.com/data/invoices/INV-2026-001.xml",
+    "encoding": "UTF-8"
+  },
+  "parameters": {
+    "companyName": "Acme Corp",
+    "includeFooter": "true",
+    "locale": "en-US"
+  },
+  "output": {
+    "method": "html",
+    "encoding": "UTF-8",
+    "indent": true,
+    "omitXmlDeclaration": true
+  },
+  "status": "completed",
+  "created": "2026-05-03T10:00:00Z",
+  "completed": "2026-05-03T10:00:01Z"
+}

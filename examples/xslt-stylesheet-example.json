@@ -1,0 +1,62 @@
+{
+  "description": "Example of an XSLT 3.0 stylesheet metadata document that transforms XML book catalog data to HTML.",
+  "version": "3.0",
+  "name": "Book Catalog HTML Transformer",
+  "description": "Transforms an XML book catalog into an HTML table with sorting and filtering.",
+  "inputFormat": "XML",
+  "outputFormat": "html",
+  "outputMethod": "html",
+  "encoding": "UTF-8",
+  "streaming": false,
+  "namespaces": [
+    {
+      "prefix": "xsl",
+      "uri": "http://www.w3.org/1999/XSL/Transform"
+    },
+    {
+      "prefix": "xs",
+      "uri": "http://www.w3.org/2001/XMLSchema"
+    },
+    {
+      "prefix": "fn",
+      "uri": "http://www.w3.org/2005/xpath-functions"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "reportTitle",
+      "type": "xs:string",
+      "required": false,
+      "default": "Book Catalog",
+      "description": "Title displayed at the top of the HTML output."
+    },
+    {
+      "name": "maxResults",
+      "type": "xs:integer",
+      "required": false,
+      "default": "100",
+      "description": "Maximum number of books to display."
+    }
+  ],
+  "templates": [
+    {
+      "match": "/",
+      "description": "Root template that generates the HTML document structure."
+    },
+    {
+      "match": "catalog",
+      "description": "Generates the HTML table container from the catalog element."
+    },
+    {
+      "match": "book",
+      "description": "Generates a table row for each book element."
+    },
+    {
+      "name": "formatPrice",
+      "description": "Named template that formats a price value with currency symbol."
+    }
+  ],
+  "imports": [],
+  "created": "2026-05-03",
+  "modified": "2026-05-03"
+}

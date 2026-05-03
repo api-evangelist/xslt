@@ -1,0 +1,113 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsl": "http://www.w3.org/1999/XSL/Transform",
+    "xs": "http://www.w3.org/2001/XMLSchema",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xslt": "https://github.com/api-evangelist/xslt/blob/main/json-ld/xslt-context.jsonld#",
+
+    "Stylesheet": {
+      "@id": "xslt:Stylesheet",
+      "@type": "@id"
+    },
+    "Transformation": {
+      "@id": "xslt:Transformation",
+      "@type": "@id"
+    },
+    "Template": {
+      "@id": "xslt:Template",
+      "@type": "@id"
+    },
+    "Parameter": {
+      "@id": "xslt:Parameter",
+      "@type": "@id"
+    },
+    "version": {
+      "@id": "dcterms:hasVersion"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "inputFormat": {
+      "@id": "xslt:inputFormat"
+    },
+    "outputFormat": {
+      "@id": "xslt:outputFormat"
+    },
+    "outputMethod": {
+      "@id": "xslt:outputMethod"
+    },
+    "encoding": {
+      "@id": "xslt:encoding"
+    },
+    "match": {
+      "@id": "xslt:match"
+    },
+    "select": {
+      "@id": "xslt:select"
+    },
+    "mode": {
+      "@id": "xslt:mode"
+    },
+    "priority": {
+      "@id": "xslt:priority"
+    },
+    "streaming": {
+      "@id": "xslt:streaming",
+      "@type": "xsd:boolean"
+    },
+    "parameters": {
+      "@id": "xslt:parameters",
+      "@container": "@set"
+    },
+    "templates": {
+      "@id": "xslt:templates",
+      "@container": "@set"
+    },
+    "imports": {
+      "@id": "xslt:imports",
+      "@container": "@set"
+    },
+    "status": {
+      "@id": "xslt:status"
+    },
+    "source": {
+      "@id": "xslt:source"
+    },
+    "created": {
+      "@id": "dcterms:created",
+      "@type": "xsd:date"
+    },
+    "modified": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:date"
+    },
+    "uri": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "href": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "prefix": {
+      "@id": "xslt:namespacePrefix"
+    },
+    "error": {
+      "@id": "schema:error"
+    },
+    "code": {
+      "@id": "schema:identifier"
+    },
+    "message": {
+      "@id": "schema:description"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/xslt/blob/main/json-schema/xslt-transformation-schema.json",
+  "title": "XSLT Transformation",
+  "description": "JSON Schema for an XSLT transformation request, describing inputs, stylesheet, and output configuration.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the transformation job.",
+      "examples": ["txn-20260503-001"]
+    },
+    "stylesheet": {
+      "type": "object",
+      "description": "The XSLT stylesheet to apply.",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI pointing to the XSLT stylesheet."
+        },
+        "inline": {
+          "type": "string",
+          "description": "Inline XSLT stylesheet content as a string."
+        },
+        "version": {
+          "type": "string",
+          "enum": ["1.0", "2.0", "3.0"],
+          "description": "XSLT version of the stylesheet."
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "description": "Source XML document to transform.",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI of the source XML document."
+        },
+        "inline": {
+          "type": "string",
+          "description": "Inline XML content as a string."
+        },
+        "encoding": {
+          "type": "string",
+          "description": "Character encoding of the source document.",
+          "default": "UTF-8"
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Key-value pairs of parameters to pass to the stylesheet.",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "examples": [{"reportTitle": "Q1 2026", "includeFooter": "true"}]
+    },
+    "output": {
+      "type": "object",
+      "description": "Output configuration for the transformation result.",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["xml", "html", "xhtml", "text"],
+          "description": "Serialization method for the output.",
+          "default": "xml"
+        },
+        "encoding": {
+          "type": "string",
+          "description": "Character encoding of the output.",
+          "default": "UTF-8"
+        },
+        "indent": {
+          "type": "boolean",
+          "description": "Whether to indent the output.",
+          "default": false
+        },
+        "omitXmlDeclaration": {
+          "type": "boolean",
+          "description": "Whether to omit the XML declaration in the output.",
+          "default": false
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "running", "completed", "failed"],
+      "description": "Status of the transformation job."
+    },
+    "error": {
+      "type": "object",
+      "description": "Error details if the transformation failed.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Error code."
+        },
+        "message": {
+          "type": "string",
+          "description": "Human-readable error message."
+        },
+        "lineNumber": {
+          "type": "integer",
+          "description": "Line number in the source where the error occurred."
+        }
+      }
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the transformation was requested."
+    },
+    "completed": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the transformation completed."
+    }
+  },
+  "required": ["stylesheet", "source"]
+}

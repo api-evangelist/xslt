@@ -1,0 +1,237 @@
+aid: xslt-vocabulary
+name: XSLT Vocabulary
+description: >-
+  Normative and domain vocabulary for XSLT (Extensible Stylesheet Language Transformations),
+  covering W3C specification terms, XPath concepts, transformation constructs, and common
+  implementation patterns.
+created: '2026-05-03'
+modified: '2026-05-03'
+tags:
+  - Data Transformation
+  - Standard
+  - W3C
+  - XML
+  - XSLT
+
+terms:
+
+  # Core specification terms
+  - term: XSLT
+    definition: >-
+      Extensible Stylesheet Language Transformations. A W3C standard language for transforming
+      XML documents into other formats using template rules and XPath expressions.
+    category: Standard
+    aliases:
+      - XSL Transformations
+      - Extensible Stylesheet Language Transformations
+
+  - term: Stylesheet
+    definition: >-
+      An XSLT document that defines transformation rules. The root element is xsl:stylesheet
+      or xsl:transform. A stylesheet contains templates, parameters, variables, functions,
+      and output declarations.
+    category: Core Construct
+
+  - term: Template
+    definition: >-
+      A transformation rule defined by xsl:template. Templates have a match pattern
+      (applied automatically to matching nodes) or a name (called explicitly). Templates
+      define what output to produce when a node is processed.
+    category: Core Construct
+
+  - term: XPath
+    definition: >-
+      XML Path Language. A query language used in XSLT to navigate and select nodes in
+      an XML document. XSLT 1.0 uses XPath 1.0; XSLT 2.0 uses XPath 2.0; XSLT 3.0 uses
+      XPath 3.1.
+    category: Related Standard
+    aliases:
+      - XML Path Language
+
+  - term: Pattern
+    definition: >-
+      An XPath expression used in the match attribute of xsl:template. Patterns identify
+      which nodes a template rule applies to. Only a subset of XPath expressions are
+      valid as patterns.
+    category: Core Construct
+
+  - term: Apply Templates
+    definition: >-
+      The xsl:apply-templates instruction processes child nodes of the current node by
+      finding and applying matching template rules. This is the primary mechanism for
+      recursive tree traversal in XSLT.
+    category: Instruction
+
+  - term: Named Template
+    definition: >-
+      A template rule identified by a name rather than a match pattern. Called explicitly
+      using xsl:call-template. Used for reusable transformation fragments (analogous to
+      subroutines or procedures).
+    category: Core Construct
+
+  - term: Variable
+    definition: >-
+      An immutable binding declared with xsl:variable. Variables are evaluated once and
+      their values cannot be changed. Can hold any XPath/XDM value type in XSLT 2.0+.
+    category: Core Construct
+
+  - term: Parameter
+    definition: >-
+      A binding declared with xsl:param that can receive values from the calling context.
+      Stylesheet-level parameters receive values from the transformation invocation; template
+      parameters receive values from xsl:call-template or xsl:apply-templates.
+    category: Core Construct
+
+  - term: Mode
+    definition: >-
+      A way to define multiple template rules for the same node pattern for different
+      processing purposes. Templates and apply-templates instructions use modes to select
+      which rules apply.
+    category: Core Construct
+
+  - term: Key
+    definition: >-
+      An index declared with xsl:key that enables efficient lookup of nodes by value.
+      The key() function uses these indexes. Equivalent to database index optimization
+      for XML node lookup.
+    category: Core Construct
+
+  - term: Result Tree
+    definition: >-
+      The output XML/HTML/text tree produced by the transformation. Built by instructions
+      like xsl:element, xsl:attribute, xsl:text, xsl:value-of, and literal result elements.
+    category: Core Concept
+
+  - term: Source Tree
+    definition: >-
+      The input XML document being transformed. Represented as a tree of nodes that can
+      be navigated and selected using XPath expressions.
+    category: Core Concept
+
+  - term: Context Node
+    definition: >-
+      The node being processed by the current template. XPath expressions in a template
+      are evaluated relative to the context node.
+    category: Core Concept
+
+  - term: Context Position
+    definition: >-
+      The position of the context node within the current node sequence, used in XPath
+      positional predicates and the position() function.
+    category: Core Concept
+
+  - term: Sequence Constructor
+    definition: >-
+      A sequence of XSLT instructions and literal result elements that appears as the
+      body of xsl:template, xsl:function, xsl:variable, xsl:param, etc. Produces a
+      sequence of nodes and atomic values.
+    category: Core Concept
+
+  - term: Grouping
+    definition: >-
+      An XSLT 2.0+ capability using xsl:for-each-group to group nodes by common values,
+      adjacent values, or position. Enables group-by and group-adjacent processing patterns.
+    category: Feature
+
+  - term: Streaming
+    definition: >-
+      An XSLT 3.0 feature enabling transformation of documents too large to load into
+      memory. Uses xsl:stream and streaming-compatible constructs. Requires restrictions
+      on template rules to ensure single-pass processing.
+    category: Feature
+
+  - term: Packages
+    definition: >-
+      An XSLT 3.0 module system allowing stylesheets to be combined and overridden.
+      Components (templates, functions, variables) can be declared with visibility levels
+      and selectively exposed or hidden.
+    category: Feature
+
+  - term: Maps
+    definition: >-
+      An XSLT 3.0 (XPath 3.1) data type representing key-value pairs. Maps are created
+      with map{}, accessed with ?key syntax, and manipulated with map:* functions. Supports
+      JSON processing natively.
+    category: Feature
+
+  - term: Arrays
+    definition: >-
+      An XSLT 3.0 (XPath 3.1) data type representing ordered sequences where each member
+      can be any sequence. Arrays are created with array{} or [item, ...] syntax.
+    category: Feature
+
+  - term: Higher-Order Functions
+    definition: >-
+      An XSLT 3.0 feature allowing functions to be passed as arguments and returned as
+      values. Enables functional programming patterns. Includes fn:apply, fn:fold-left,
+      fn:fold-right, and fn:for-each.
+    category: Feature
+
+  - term: Output Method
+    definition: >-
+      The serialization method for the result tree, set with xsl:output/@method. Values:
+      xml (XML serialization), html (HTML serialization with special handling), xhtml
+      (XHTML with HTML compatibility), text (plain text output).
+    category: Configuration
+
+  - term: Namespace
+    definition: >-
+      XML namespaces distinguish element and attribute names from different vocabularies.
+      In XSLT, the xsl: prefix must be bound to http://www.w3.org/1999/XSL/Transform.
+    category: XML Concept
+
+  - term: Literal Result Element
+    definition: >-
+      An element in a template that is not in the XSLT namespace and is copied directly
+      to the result tree. Provides the HTML/XML structure within templates.
+    category: Core Construct
+
+  - term: XSLT Processor
+    definition: >-
+      A software implementation that executes XSLT stylesheets against XML source documents.
+      Major processors include Saxon (primary for XSLT 2.0/3.0), Xalan (XSLT 1.0/2.0),
+      libxslt (XSLT 1.0), and browser-native processors.
+    category: Implementation
+
+  - term: Saxon
+    definition: >-
+      The dominant XSLT processor by Saxonica, supporting XSLT 3.0, XQuery 3.1, and XPath 3.1.
+      Available as Saxon-HE (open source, MPL-2.0), Saxon-PE, and Saxon-EE (commercial).
+      Available for Java (.NET via SaxonCS), C/C++/Python/PHP (SaxonC).
+    category: Implementation
+
+  - term: Xalan
+    definition: >-
+      Apache open-source XSLT processor for Java and C++. Supports XSLT 1.0 fully and
+      partial XSLT 2.0. Maintained by the Apache Software Foundation.
+    category: Implementation
+
+  - term: libxslt
+    definition: >-
+      C library for XSLT 1.0 transformations developed by GNOME. Used as the foundation
+      for many XML/XSLT tools in Linux environments and language bindings.
+    category: Implementation
+
+  - term: W3C
+    definition: >-
+      World Wide Web Consortium. The standards body that publishes and maintains XSLT
+      specifications, along with XPath, XQuery, XML Schema, and other web standards.
+    category: Governance
+    aliases:
+      - World Wide Web Consortium
+
+  - term: XDM
+    definition: >-
+      XPath and XQuery Data Model. The formal data model underlying XPath 2.0/3.0/3.1
+      and XSLT 2.0/3.0. Extends XPath 1.0 with typed values, sequences, and atomic types.
+    category: Standard
+    aliases:
+      - XPath Data Model
+      - XPath and XQuery Data Model
+
+  - term: Conformance
+    definition: >-
+      The degree to which an XSLT processor implements the W3C specification. XSLT 3.0
+      defines basic conformance (mandatory features) and optional features like streaming
+      and schema-awareness.
+    category: Governance

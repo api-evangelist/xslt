@@ -1,0 +1,128 @@
+{
+  "title": "XSLT Stylesheet Structure",
+  "description": "Structure documentation for an XSLT stylesheet, describing the key elements and how they relate to each other.",
+  "type": "object",
+  "structure": {
+    "root": {
+      "element": "xsl:stylesheet",
+      "description": "Root element of an XSLT stylesheet. Alternatively xsl:transform.",
+      "attributes": {
+        "version": "XSLT version number (1.0, 2.0, or 3.0)",
+        "xmlns:xsl": "XSLT namespace URI: http://www.w3.org/1999/XSL/Transform",
+        "exclude-result-prefixes": "Namespaces to exclude from output"
+      },
+      "children": {
+        "xsl:output": {
+          "description": "Configures serialization of the result tree.",
+          "attributes": {
+            "method": "Output method: xml, html, xhtml, or text",
+            "encoding": "Character encoding (default UTF-8)",
+            "indent": "Whether to add whitespace indentation (yes/no)",
+            "omit-xml-declaration": "Whether to suppress the XML declaration (yes/no)"
+          }
+        },
+        "xsl:param": {
+          "description": "Declares a global stylesheet parameter that can be passed in at invocation.",
+          "attributes": {
+            "name": "Parameter QName",
+            "select": "Default value XPath expression",
+            "as": "Type annotation (XSLT 2.0+)"
+          }
+        },
+        "xsl:variable": {
+          "description": "Declares a global variable.",
+          "attributes": {
+            "name": "Variable QName",
+            "select": "Value XPath expression",
+            "as": "Type annotation (XSLT 2.0+)"
+          }
+        },
+        "xsl:template": {
+          "description": "Defines a transformation template rule.",
+          "attributes": {
+            "match": "XPath pattern to match nodes",
+            "name": "Template name for named template calls",
+            "mode": "Processing mode",
+            "priority": "Template priority for conflict resolution",
+            "as": "Expected return type (XSLT 2.0+)"
+          },
+          "children": {
+            "xsl:apply-templates": "Processes child nodes by applying matching templates",
+            "xsl:call-template": "Calls a named template",
+            "xsl:value-of": "Outputs the string value of an XPath expression",
+            "xsl:copy": "Creates a shallow copy of the current node",
+            "xsl:copy-of": "Creates a deep copy of selected nodes",
+            "xsl:for-each": "Iterates over a node set or sequence",
+            "xsl:if": "Conditional content output",
+            "xsl:choose": "Multi-branch conditional (like switch/case)",
+            "xsl:element": "Creates a result element dynamically",
+            "xsl:attribute": "Creates a result attribute dynamically",
+            "xsl:text": "Outputs literal text",
+            "xsl:number": "Formats a number",
+            "xsl:sort": "Sorts a node sequence",
+            "xsl:message": "Outputs a diagnostic message (XSLT 3.0: xsl:assert)"
+          }
+        },
+        "xsl:function": {
+          "description": "Defines a user-defined function (XSLT 2.0+).",
+          "attributes": {
+            "name": "Function QName (must be in non-XSLT namespace)",
+            "as": "Return type"
+          }
+        },
+        "xsl:import": {
+          "description": "Imports another XSLT stylesheet with lower precedence.",
+          "attributes": {
+            "href": "URI of the imported stylesheet"
+          }
+        },
+        "xsl:include": {
+          "description": "Includes another XSLT stylesheet at the same precedence.",
+          "attributes": {
+            "href": "URI of the included stylesheet"
+          }
+        },
+        "xsl:key": {
+          "description": "Declares a key for efficient node lookup using key() function.",
+          "attributes": {
+            "name": "Key name",
+            "match": "Pattern identifying nodes to index",
+            "use": "XPath expression for the key value"
+          }
+        },
+        "xsl:strip-space": {
+          "description": "Removes whitespace-only text nodes from specified elements.",
+          "attributes": {
+            "elements": "Space-separated list of element names"
+          }
+        },
+        "xsl:preserve-space": {
+          "description": "Preserves whitespace in specified elements.",
+          "attributes": {
+            "elements": "Space-separated list of element names"
+          }
+        }
+      }
+    }
+  },
+  "versions": {
+    "1.0": {
+      "year": 1999,
+      "status": "W3C Recommendation",
+      "xpathVersion": "1.0",
+      "keyFeatures": ["Template rules", "XPath 1.0", "Pattern matching", "Multiple output methods"]
+    },
+    "2.0": {
+      "year": 2007,
+      "status": "W3C Recommendation",
+      "xpathVersion": "2.0",
+      "keyFeatures": ["User-defined functions", "Multiple result documents", "Grouping", "XML Schema types", "Regular expressions"]
+    },
+    "3.0": {
+      "year": 2017,
+      "status": "W3C Recommendation",
+      "xpathVersion": "3.1",
+      "keyFeatures": ["Streaming", "Maps and arrays", "Higher-order functions", "JSON support", "Packages", "Try/catch"]
+    }
+  }
+}
