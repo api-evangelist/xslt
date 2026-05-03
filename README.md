@@ -28,6 +28,7 @@ Formal schemas documenting XSLT concepts:
 | Structure | Description |
 |-----------|-------------|
 | [xslt-stylesheet-structure.json](json-structure/xslt-stylesheet-structure.json) | Document structure reference for XSLT stylesheets |
+| [xslt-transformation-structure.json](json-structure/xslt-transformation-structure.json) | Structural reference for an XSLT transformation request |
 
 ## JSON-LD
 

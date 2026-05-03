@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-structure.org/draft-01/json-structure-core.json",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/json-structure/xslt-transformation-structure.json",
+  "title": "XSLT Transformation Structure",
+  "description": "Structural reference for an XSLT transformation job, describing how a request is composed of a stylesheet selector, a source document selector, optional parameters, and output serialization configuration, along with execution status and error reporting.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the transformation job."
+    },
+    "stylesheet": {
+      "type": "object",
+      "description": "Selector for the XSLT stylesheet to apply (URI reference or inline content).",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "inline": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string",
+          "enum": ["1.0", "2.0", "3.0"]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "description": "Selector for the source XML document to transform.",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "inline": {
+          "type": "string"
+        },
+        "encoding": {
+          "type": "string"
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Key-value parameter bindings supplied to the stylesheet at runtime.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "output": {
+      "type": "object",
+      "description": "Serialization configuration for the result document.",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["xml", "html", "xhtml", "text"]
+        },
+        "encoding": {
+          "type": "string"
+        },
+        "indent": {
+          "type": "boolean"
+        },
+        "omitXmlDeclaration": {
+          "type": "boolean"
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "description": "Execution-time information about the transformation.",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pending", "running", "completed", "failed"]
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "processor": {
+          "type": "string",
+          "description": "Name and version of the XSLT processor that executed the job."
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "description": "Error reporting structure when the transformation fails.",
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" },
+        "lineNumber": { "type": "integer" },
+        "columnNumber": { "type": "integer" }
+      }
+    }
+  },
+  "required": ["stylesheet", "source"]
+}

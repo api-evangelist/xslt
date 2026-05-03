@@ -19,6 +19,7 @@ tags:
   - XPath
 created: '2025'
 modified: '2026-05-03'
+
 specificationVersion: '0.19'
 apis:
   - aid: xslt:xslt-30
@@ -98,6 +99,15 @@ common:
   - type: JSONStructure
     url: >-
       https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/json-structure/xslt-stylesheet-structure.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/json-structure/xslt-transformation-structure.json
+  - type: Example
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/examples/xslt-stylesheet-example.json
+  - type: Example
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/examples/xslt-transformation-example.json
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/json-ld/xslt-context.jsonld
