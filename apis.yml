@@ -84,9 +84,9 @@ common:
     url: https://www.w3.org/TR/xslt/
   - type: Documentation
     url: https://www.w3.org/TR/xslt-30/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/w3c
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/Saxonica/Saxon-HE
   - type: Specification
     url: https://www.w3.org/TR/xslt-30/
