@@ -102,10 +102,10 @@ common:
   - type: JSONStructure
     url: >-
       https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/json-structure/xslt-transformation-structure.json
-  - type: Example
+  - type: Examples
     url: >-
       https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/examples/xslt-stylesheet-example.json
-  - type: Example
+  - type: Examples
     url: >-
       https://raw.githubusercontent.com/api-evangelist/xslt/refs/heads/main/examples/xslt-transformation-example.json
   - type: JSONLDContext
