@@ -80,6 +80,8 @@ apis:
       - type: Specification
         url: https://www.w3.org/TR/xslt-10/
 common:
+  - type: DomainSecurity
+    url: security/xslt-domain-security.yml
   - type: Website
     url: https://www.w3.org/TR/xslt/
   - type: Documentation
