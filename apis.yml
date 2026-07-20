@@ -1,5 +1,6 @@
 aid: xslt
 name: XSLT
+kind: topic
 description: >-
   XSLT (Extensible Stylesheet Language Transformations) is a W3C standard language for
   transforming XML documents into other formats such as HTML, plain text, or different
