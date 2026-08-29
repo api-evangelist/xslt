@@ -1,4 +1,15 @@
 aid: xslt
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -94,6 +105,10 @@ apis:
       - type: Specification
         url: https://www.w3.org/TR/xslt-10/
 common:
+  - type: IssueTracker
+    url: https://github.com/Saxonica/Saxon-HE/issues
+  - type: Releases
+    url: https://github.com/Saxonica/Saxon-HE/releases
   - type: DomainSecurity
     url: security/xslt-domain-security.yml
   - type: Website
