@@ -37,6 +37,13 @@ type: Index
 url: https://www.w3.org/TR/xslt-30/
 tags:
   - Data Transformation
+  - Standards
+  - W3C
+  - XML
+  - XSLT
+  - XPath
+tags_raw:
+  - Data Transformation
   - Standard
   - W3C
   - XML
@@ -57,6 +64,12 @@ apis:
     humanURL: https://www.w3.org/TR/xslt-30/
     tags:
       - Data Transformation
+      - Standards
+      - W3C
+      - XML
+      - XSLT
+    tags_raw:
+      - Data Transformation
       - Standard
       - W3C
       - XML
@@ -76,6 +89,12 @@ apis:
     humanURL: https://www.w3.org/TR/xslt20/
     tags:
       - Data Transformation
+      - Standards
+      - W3C
+      - XML
+      - XSLT
+    tags_raw:
+      - Data Transformation
       - Standard
       - W3C
       - XML
@@ -94,6 +113,12 @@ apis:
       XML processors and browsers.
     humanURL: https://www.w3.org/TR/xslt-10/
     tags:
+      - Data Transformation
+      - Standards
+      - W3C
+      - XML
+      - XSLT
+    tags_raw:
       - Data Transformation
       - Standard
       - W3C
